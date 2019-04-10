@@ -28,6 +28,6 @@ else:
 	sock.send(("DATA\r\n").encode("UTF-8"))
 	print(sock.recv(256).decode("UTF-8"))
 
-	sock.send(("FROM: " + FAKEMAIL[0:FAKEMAIL.find("@")] + " <" + FAKEMAIL + ">\r\nTo: <" + TARGET + ">\r\nSubject: " + TARGET[0:TARGET.find("@")] + "\r\n" + MSG +"\r\n.\r\n").encode("UTF-8"))
+	sock.send(("From: " + FAKEMAIL[0:FAKEMAIL.find("@")] + " <" + FAKEMAIL + ">\r\nTo: " + TARGET[0:TARGET.find("@")] + " <" + TARGET + ">\r\nSubject: " + TARGET[0:TARGET.find("@")] + "\r\n\r\n" + MSG +"\r\n.\r\n").encode("UTF-8"))
 	print(sock.recv(256).decode("UTF-8"))
 	sock.close()
